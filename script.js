@@ -67,6 +67,16 @@ songItems.forEach((element, i) => {
   element.getElementsByClassName("songName")[0].innerText = songs[i].songName;
 });
 
+var volumeSlider = document.getElementById("volumeSlider");
+
+volumeSlider.addEventListener("input", function () {
+  setVolume(parseFloat(volumeSlider.value));
+});
+
+function setVolume(volume) {
+  audioElement.volume = volume;
+}
+
 // Handle play/pause click
 masterPlay.addEventListener("click", () => {
   if (audioElement.paused || audioElement.currentTime <= 0) {
